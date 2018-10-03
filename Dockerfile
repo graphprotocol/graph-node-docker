@@ -3,7 +3,7 @@ FROM rust:latest
 # Clone and build the graph-node repository
 RUN git clone https://github.com/graphprotocol/graph-node \
     && pushd graph-node \
-    && $HOME/.cargo/bin/cargo install --release --path node \
+    && cargo install --release --path node \
     && popd \
     && rm -rf graph-node
 
