@@ -2,9 +2,9 @@ FROM rust:latest
 
 # Clone and build the graph-node repository
 RUN git clone https://github.com/graphprotocol/graph-node \
-    && pushd graph-node \
+    && cd graph-node \
     && cargo install --release --path node \
-    && popd \
+    && cd .. \
     && rm -rf graph-node
 
 ENV POSTGRES_USER ""
