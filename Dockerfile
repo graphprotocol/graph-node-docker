@@ -1,5 +1,9 @@
 FROM rust:latest
 
+# Install clang (required for dependencies)
+RUN apt-get update \
+    && apt-get install -y clang libclang-dev
+
 # Clone and build the graph-node repository
 RUN git clone https://github.com/graphprotocol/graph-node \
     && cd graph-node \
