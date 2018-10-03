@@ -15,6 +15,10 @@ ENV POSTGRES_DB ""
 ENV IPFS_URL ""
 ENV ETHEREUM_RPC_URL ""
 
+EXPOSE 8000 # HTTP port
+EXPOSE 8001 # WebSocket port
+EXPOSE 8020 # JSON-RPC port
+
 # Start everything on startup
 ADD start-graph-node /usr/local/bin
 CMD ["start-graph-node"]
