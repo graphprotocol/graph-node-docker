@@ -11,6 +11,12 @@ RUN git clone https://github.com/graphprotocol/graph-node \
     && cd .. \
     && rm -rf graph-node
 
+# Clone and install wait-for-it
+RUN git clone https://github.com/vishnubob/wait-for-it \
+    && cp wait-for-it/wait-for-it.sh /usr/local/bin \
+    && chmod +x /usr/local/bin/wait-for-it.sh \
+    && rm -rf wait-for-it
+
 ENV postgres ""
 ENV ipfs ""
 ENV ethereum ""
@@ -25,7 +31,8 @@ EXPOSE 8001
 EXPOSE 8020
 
 # Start everything on startup
-CMD graph-node \
-      --postgres-url $postgres \
-      --ethereum-rpc $ethereum \
-      --ipfs $ipfs
+CMD wait-for-it.sh $ipfs -t 30 -- \
+      graph-node \
+        --postgres-url $postgres \
+        --ethereum-rpc $ethereum \
+        --ipfs $ipfs
