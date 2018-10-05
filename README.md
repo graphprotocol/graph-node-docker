@@ -25,3 +25,14 @@ docker run -it \
   -e ipfs=host.docker.internal:5001 \
   -e ethereum=mainnet:https://mainnet.infura.io
 ```
+
+## Docker Compose
+
+To use the `docker-compose.yml` configuration in this repository, simply clone
+this repo and run
+```sh
+docker-compose up
+```
+
+This will start IPFS, Postgres and Graph Node in Docker and create persistent
+data directories for IPFS and Postgres in `./data/ipfs` and `./data/postgres`.
