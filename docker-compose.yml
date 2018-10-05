@@ -1,6 +1,6 @@
 version: '3'
 services:
-  graph:
+  graph-node:
     image: graphprotocol/graph-node
     ports:
       - 8000
