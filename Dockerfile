@@ -25,7 +25,6 @@ EXPOSE 8001
 EXPOSE 8020
 
 # Start everything on startup
-ADD start-graph-node /usr/local/bin
 CMD graph-node \
       --postgres-url $postgres \
       --ethereum-rpc $ethereum \
