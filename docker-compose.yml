@@ -1,0 +1,27 @@
+version: '3'
+services:
+  graph:
+    image: 8acb55b09a6d # graphprotocol/graph-node
+    ports:
+      - 8000
+      - 8001
+      - 8020
+    depends_on:
+      - ipfs
+      - postgres
+    environment:
+      - postgres=postgresql://graph-node:let-me-in@postgres:5432/graph-node
+      - ipfs=ipfs:5001
+      - ethereum=mainnet:https://mainnet.infura.io
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - 5001
+  postgres:
+    image: postgres
+    ports:
+      - 5432
+    environment:
+      - POSTGRES_USER=graph-node
+      - POSTGRES_PASSWORD=let-me-in
+      - POSTGRES_DB=graph-node
