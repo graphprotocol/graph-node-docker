@@ -11,18 +11,22 @@ RUN git clone https://github.com/graphprotocol/graph-node \
     && cd .. \
     && rm -rf graph-node
 
-ENV POSTGRES_USER ""
-ENV POSTGRES_PASSWORD ""
-ENV POSTGRES_HOST ""
-ENV POSTGRES_DB ""
+ENV postgres ""
+ENV ipfs ""
+ENV ethereum ""
 
-ENV IPFS_URL ""
-ENV ETHEREUM_RPC_URL ""
+# HTTP port
+EXPOSE 8000
 
-EXPOSE 8000 # HTTP port
-EXPOSE 8001 # WebSocket port
-EXPOSE 8020 # JSON-RPC port
+# WebSocket port
+EXPOSE 8001
+
+# JSON-RPC port
+EXPOSE 8020
 
 # Start everything on startup
 ADD start-graph-node /usr/local/bin
-CMD ["start-graph-node"]
+CMD graph-node \
+      --postgres-url $postgres \
+      --ethereum-rpc $ethereum \
+      --ipfs $ipfs
