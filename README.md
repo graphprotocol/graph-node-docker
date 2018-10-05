@@ -11,7 +11,7 @@ docker run -it \
   -e ethereum=<NETWORK_NAME>:<ETHEREUM_RPC_URL>
 ```
 
-Example:
+### Example usage
 
 ```sh
 docker run -it \
