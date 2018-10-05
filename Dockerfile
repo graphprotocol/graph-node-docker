@@ -17,7 +17,10 @@ RUN git clone https://github.com/vishnubob/wait-for-it \
     && chmod +x /usr/local/bin/wait-for-it.sh \
     && rm -rf wait-for-it
 
-ENV postgres ""
+ENV postgres_host ""
+ENV postgres_user ""
+ENV postgres_pass ""
+ENV postgres_db ""
 ENV ipfs ""
 ENV ethereum ""
 
@@ -32,7 +35,8 @@ EXPOSE 8020
 
 # Start everything on startup
 CMD wait-for-it.sh $ipfs -t 30 -- \
+    wait-for-it.sh $postgres_host -t 30 -- \
       graph-node \
-        --postgres-url $postgres \
+        --postgres-url postgresql://$postgres_user:$postgres_pass@$postgres_host/$postgres_db \
         --ethereum-rpc $ethereum \
         --ipfs $ipfs
