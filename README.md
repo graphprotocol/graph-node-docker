@@ -59,10 +59,10 @@ In order to use the three unlocked accounts, you have to send money to them from
 the default account. In a web3 console (e.g. `truffle console`), run
 ```js
 > # Unlock the default account
-> web3.personal.unlockAccount('0x00a329c0648769A73afAc7F9381E08FB43dBEA72', '')
+> web3.eth.personal.unlockAccount('0x00a329c0648769A73afAc7F9381E08FB43dBEA72', '')
 >
 > # Send money to the other unlocked accounts
-> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xddf8430d91ca7cf8df175813b58865dff2e15bc6', value: 100000000000000000000000000})
-> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xc4ca008b1a769c4330ab6f42f53dc367d0527c60', value: 100000000000000000000000000})
-> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xd49c572ab93dcc58627a70420763de4bdb74d6e8', value: 100000000000000000000000000})
+> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xddf8430d91ca7cf8df175813b58865dff2e15bc6', value: 10000000000000000000})
+> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xc4ca008b1a769c4330ab6f42f53dc367d0527c60', value: 10000000000000000000})
+> web3.eth.sendTransaction({from: '0x00a329c0648769A73afAc7F9381E08FB43dBEA72', to:'0xd49c572ab93dcc58627a70420763de4bdb74d6e8', value: 10000000000000000000})
 ```
