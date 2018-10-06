@@ -7,6 +7,7 @@ RUN apt-get update \
 # Clone and build the graph-node repository
 RUN git clone https://github.com/graphprotocol/graph-node \
     && cd graph-node \
+    && git checkout ethsf \
     && cargo install --path node \
     && cd .. \
     && rm -rf graph-node
