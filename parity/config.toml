@@ -2,7 +2,7 @@
 chain = "dev"
 
 [account]
-unlock = ["0xddf8430d91ca7cf8df175813b58865dff2e15bc6"] 
+unlock = ["0xddf8430d91ca7cf8df175813b58865dff2e15bc6", "0xc4ca008b1a769c4330ab6f42f53dc367d0527c60", "0xd49c572ab93dcc58627a70420763de4bdb74d6e8"]
 password = ["/root/.local/share/io.parity.ethereum/password.txt"]
 
 [rpc]
