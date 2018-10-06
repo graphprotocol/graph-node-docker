@@ -18,6 +18,8 @@ RUN git clone https://github.com/vishnubob/wait-for-it \
     && chmod +x /usr/local/bin/wait-for-it.sh \
     && rm -rf wait-for-it
 
+ENV RUST_LOG ""
+
 ENV postgres_host ""
 ENV postgres_user ""
 ENV postgres_pass ""
