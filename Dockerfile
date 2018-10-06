@@ -34,9 +34,10 @@ EXPOSE 8001
 EXPOSE 8020
 
 # Start everything on startup
-CMD wait-for-it.sh $ipfs -t 30 -- \
-    wait-for-it.sh $postgres_host -t 30 -- \
-      graph-node \
-        --postgres-url postgresql://$postgres_user:$postgres_pass@$postgres_host/$postgres_db \
-        --ethereum-rpc $ethereum \
-        --ipfs $ipfs
+CMD wait-for-it.sh $ipfs -t 30 \
+    && wait-for-it.sh $postgres_host -t 30 \
+    && sleep 5 \
+    && graph-node \
+         --postgres-url postgresql://$postgres_user:$postgres_pass@$postgres_host/$postgres_db \
+         --ethereum-rpc $ethereum \
+         --ipfs $ipfs
