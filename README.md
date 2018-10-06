@@ -35,7 +35,21 @@ docker-compose up
 ```
 
 This will start IPFS, Postgres, Parity and Graph Node in Docker and create persistent
-data directories for IPFS and Postgres in `./data/ipfs` and `./data/postgres`.
+data directories for IPFS and Postgres in `./data/ipfs` and `./data/postgres`. You
+can access these via:
+
+* Graph Node:
+    - GraphiQL: `http://localhost:8000/`
+    - HTTP: `http://localhost:8000/<subgraph>/graphql`
+    - WebSockets: `ws://localhost:8001/<subgraph>`
+    - JSON-RPC admin: `http://localhost:8020/`
+* IPFS:
+    - `127.0.0.1:5001` or `/ip4/127.0.0.1/tcp/5001`
+* Parity:
+    - JSON-RPC: `http://localhost:8545/`
+    - WebSockets: `ws://localhost:8546/`
+* Postgres:
+    - `postgresql://graph-node:let-me-in@localhost:8545/graph-node`
 
 The Parity dev chain included in this setup creates one default account and starts
 with three additional unlocked account you can use for development and testing (e.g.
