@@ -19,6 +19,7 @@ RUN git clone https://github.com/vishnubob/wait-for-it \
     && rm -rf wait-for-it
 
 ENV RUST_LOG ""
+ENV GRAPH_LOG ""
 
 ENV postgres_host ""
 ENV postgres_user ""
