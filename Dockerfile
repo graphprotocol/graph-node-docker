@@ -21,6 +21,9 @@ RUN git clone https://github.com/vishnubob/wait-for-it \
 
 ENV RUST_LOG ""
 ENV GRAPH_LOG ""
+ENV EARLY_LOG_CHUNK_SIZE ""
+ENV ETHEREUM_RPC_PARALLEL_REQUESTS ""
+ENV ETHEREUM_BLOCK_CHUNK_SIZE ""
 
 ENV postgres_host ""
 ENV postgres_user ""
